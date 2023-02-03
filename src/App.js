@@ -1,18 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-import {createGlobalStyle} from 'styled-components';
+import logo from "./logo.svg";
+import "./App.css";
+import { createGlobalStyle } from "styled-components";
+import TodoTemplate from "./components/TodoTemplate";
+import { useState } from "react";
 
 const GlobalSttle = createGlobalStyle`
 body{
   background-color: coral;
 } 
-`
+`;
 
 function App() {
+  const [todos, setTodos] = useState("");
   return (
     <>
-    <GlobalSttle />
-    <div>영역확인</div>
+      <GlobalSttle />
+      <TodoTemplate>
+        <TodoList />
+      </TodoTemplate>
     </>
   );
 }
