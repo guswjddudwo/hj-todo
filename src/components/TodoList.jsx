@@ -1,12 +1,11 @@
-import React from "react";
-import TodoListItem from "./TodoListItem";
+import styled from "styled-components";
+import TodoListItem from "./TodoListItem"
 
-function TodoList({ totos }) {
+
+function TodoList({todos, onRemove, onToggle}) {
   return (
     <div>
-      {totos.map((todo) => {
-        <TodoListItem todo={todo} key={todo.id} />;
-      })}
+      
     </div>
   );
 }
