@@ -62,14 +62,14 @@ function TodoListItem({ todo, onRemove, onToggle }) {
 
   return (
     <TodoListItemWrapper>
-      <CheckBox checked={checked} onClick={() => { onToggle(id); }}>
+    <Checkbox checked={checked} onClick={() => { onToggle(id); }}>
       {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-      <Text checked={checked}>{text}</Text>
-      <Remove onClick={() => { onRemove(id); }}>
-        <MdRemoveCircleOutline />
-      </Remove>
-      </CheckBox>
-    </TodoListItemWrapper>
+    </Checkbox>
+    <Text checked={checked}>{text}</Text>
+    <Remove onClick={() => { onRemove(id); }}>
+      <MdRemoveCircleOutline />
+    </Remove>
+  </TodoListItemWrapper>
   );
 }
 

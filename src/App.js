@@ -35,11 +35,18 @@ function App() {
       checked: false
     }
   ]);
+useEffect(() => {
+  const dbTodos = JSON.parse(localStorage.getItem('todos')) || [];
+  setTodos(dbTodos);
+}, []);
 
 
   return (
     <GlobalStyle>
-        <TodoInsert />
+        <TodoTemplate>
+          <TodoInsert onInsert={handleInsert}/>
+          <TodoList/>
+        </TodoTemplate>
     </GlobalStyle>
   );
 }
