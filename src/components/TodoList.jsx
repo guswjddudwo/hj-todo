@@ -7,12 +7,12 @@ const TodoListWrapper = styled.div`
   overflow-y: auto;
 `;
 
-function TodoList({todos}) {
+function TodoList({todos, onRemove, onToggle}) {
   return (
     <TodoListWrapper>
-    {todos.map((todo) => {
-      <TodoListItem todo={todo} key={todo.id} />
-    })}
+    {todos.map((todo) => 
+      <TodoListItem todo={todo} key={todo.id} onRemove={onRemove} onToggle={onToggle} />
+    )}
   </TodoListWrapper>
   );
 }

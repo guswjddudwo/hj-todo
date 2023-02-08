@@ -8,10 +8,10 @@ const TodoListItemWrapper = styled.div`
   align-items: center;
 
   &:nth-child(even) {
-    background: #000;
+    background: #8287b9;
   }
   & + & {
-    border-top: 1px solid red;
+    border-top: 1px solid #6e798b;
   }
 `;
 
@@ -21,7 +21,7 @@ display: flex;
 align-items: center;
 svg {
     font-size: 1.5rem;
-    color: ${props => props.checked && '#22b8cf'}
+    color: ${props => props.checked && '#ff0000'}
   }
 `;
 
@@ -31,7 +31,7 @@ const Text = styled.div`
 
   ${props => props.checked &&
     css`
-      color: #adb5bd;
+      color: #887a7a;
       text-decoration: line-through;
     `}
 `;
@@ -40,10 +40,10 @@ const Remove = styled.div`
   display: flex;
   align-items: center;
   font-size: 1.5rem;
-  color: #ff6b6b;
+  color: #ca1717;
   cursor: pointer;
   &:hover {
-    color: #ff8787;
+    color: #000000;
   }
 `;
 
@@ -56,7 +56,7 @@ function TodoListItem({ todo, onRemove, onToggle }) {
 
   return (
     <TodoListItemWrapper>
-    <Checkbox Checkbox={checked}>
+    <Checkbox Checkbox={checked} onClick={() => { onToggle(id);}}>
       {checked ? <MdCheckBox/> : <MdCheckBoxOutlineBlank/>}
     </Checkbox>
     <Text checked={checked}>{text}</Text>
