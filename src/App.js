@@ -42,12 +42,13 @@ function App() {
 
 
   return (
-    <GlobalStyle>
+    <>
+    <GlobalStyle/>
         <TodoTemplate>
           <TodoInsert />
-          <TodoList/>
+          <TodoList todos={todos}/>
         </TodoTemplate>
-    </GlobalStyle>
+    </>
   );
 }
 

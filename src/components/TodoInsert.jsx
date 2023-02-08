@@ -5,7 +5,7 @@ import {MdAdd as AddIcon} from "react-icons/md"
 
 const TodoInsertWrapper = styled.form`
   display: flex;
-  background: #777777;
+  background: #6e798b;
 `
 
 const StyledInput = styled.input`
@@ -18,14 +18,14 @@ const StyledInput = styled.input`
   flex: 1; 
 
   &::placeholder {
-    color: #dee2e6;
+    color: #fff388;
   }
 `
 
 const StyledButton = styled.button`
   border: none;
   background: #868e96;
-  color: white;
+  color: #fff388;
   padding: 0 1rem;
   font-size: 1.5rem;
   display: flex;
@@ -35,7 +35,7 @@ const StyledButton = styled.button`
 
 
 function TodoInsert({onInsert}) {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('');
 
   const handleChange = (e) => {
     setValue(e.target.value);

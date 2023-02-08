@@ -10,28 +10,30 @@ const TodoTemplateWrapper = styled.div`
   overflow: hidden;
 
 .app-title {
-  background: yellow;
-  color: #fff;
+  background: #ffffff;
+  color: #a4abeb;
   height: 4rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .content {
-  background: #fff;
+  background: #a4abeb;
 }
 
 
 `
 
 function TodoTemplate(props) {
-  const {Children}=props;
+  const {children}=props;
+// 구조분해 할당 
+  console.log(props)
   return (
     <TodoTemplateWrapper>
       <div className="app-title">TODO List</div>
-      <div className="content">{Children}</div>
+      <div className="content">{children}</div>
     </TodoTemplateWrapper>
   );
 }

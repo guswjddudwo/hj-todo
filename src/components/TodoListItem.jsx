@@ -51,11 +51,13 @@ const Remove = styled.div`
 
 
 function TodoListItem({ todo, onRemove, onToggle }) {
+  // console.log(todo)
   const { id, text, checked } = todo;
 
   return (
     <TodoListItemWrapper>
-    <Checkbox >
+    <Checkbox Checkbox={checked}>
+      {checked ? <MdCheckBox/> : <MdCheckBoxOutlineBlank/>}
     </Checkbox>
     <Text checked={checked}>{text}</Text>
     <Remove onClick={() => { onRemove(id); }}>

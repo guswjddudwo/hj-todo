@@ -7,10 +7,12 @@ const TodoListWrapper = styled.div`
   overflow-y: auto;
 `;
 
-function TodoList(props) {
+function TodoList({todos}) {
   return (
     <TodoListWrapper>
-    <TodoListItem />
+    {todos.map((todo) => {
+      <TodoListItem todo={todo} key={todo.id} />
+    })}
   </TodoListWrapper>
   );
 }
