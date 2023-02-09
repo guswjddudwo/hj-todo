@@ -13,13 +13,19 @@ const TodoTemplateWrapper = styled.div`
 
   h1 {
         margin: 0 auto;
-        font-size: 1.5rem;
+        font-size: 1rem;
         color: #343a40;
+        display: flex;
+  justify-content: center;
+  align-items: center;
     }
     .day {
     margin-top: .5rem;
-    color: #868e96;
+    color: #343a40;
     font-size: 1rem;
+    display: flex;
+  justify-content: center;
+  align-items: center;
   }
   .tasks-left {
     color: #ff8f8f;
@@ -38,7 +44,7 @@ const TodoTemplateWrapper = styled.div`
 }
 
 .content {
-  background: #a4abeb;
+  background: #e0e0e0;
 }
 `
 
