@@ -47,6 +47,7 @@ function TodoInsert({onInsert}) {
     e.preventDefault();
   }
 
+
   return ( 
     <TodoInsertWrapper onSubmit={handleSubmit}>
       <StyledInput 
