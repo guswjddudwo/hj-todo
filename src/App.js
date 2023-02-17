@@ -1,97 +1,70 @@
-import React, {  useCallback, useEffect, useRef, useState } from 'react';
-import {createGlobalStyle} from 'styled-components';
-import reset from 'styled-reset';
+import { useCallback, useEffect, useRef, useState } from "react";
+import { createGlobalStyle } from "styled-components";
+// import { Reset } from "styled-reset";
+import reset from "styled-reset";
 import { v4 as uuidv4 } from "uuid";
 
-import TodoInsert from './components/TodoInsert';
-import TodoList from './components/TodoList';
-import TodoTemplate from './components/TodoTemplate';
+import TodoInsert from "./components/TodoInsert";
+import TodoList from "./components/TodoList";
+import TodoTemplate from "./components/TodoTemplate";
 
 
 const GlobalStyle = createGlobalStyle`
 
-${reset}
-body {
-  background: gray;
-}
-`
+  ${reset}
+
+  body {
+    background: #e9ecef;
+  }
+`;
 
 function App() {
   const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: '수업 교안 작성하기',
-      checked: true
-    },
-    {
-      id: 2,
-      text: '시험 채점하기',
-      checked: true
-    },
-    {
-      id: 3,
-      text: '단계별 실습 예제 만들기',
-      checked: false
-    }
   ]);
 
+  // 로컬 스토리지에서 가져오기
   useEffect(() => {
     const dbTodos = JSON.parse(localStorage.getItem("todos")) || [];
     setTodos(dbTodos);
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  },[todos]);
+
+ 
   const nextId = useRef(4);
-  const handleInsert = useCallback(
-    (text) => {
+
+  const handleInsert = useCallback((text) => {
       const todo = {
         id: uuidv4(),
         text,
         checked: false,
       };
-
-      setTodos(todos.concat(todo)); 
+      setTodos(todos.concat(todo));
 
       nextId.current += 1; 
-
-      localStorage.setItem("todos", JSON.stringify(todos.concat(todo)));
     },
     [todos]
   );
 
-  const handleRemove = useCallback(
-    (id) => {
+
+  const handleRemove = useCallback((id) => {
+    
       setTodos(todos.filter((todo) => todo.id !== id));
+    },[todos]);
 
-      localStorage.setItem(
-        "todos",
-        JSON.stringify(todos.filter((todo) => todo.id !== id))
-      );
-    },
-    [todos]
-  );
 
   const handleToggle = useCallback(
     (id) => {
       setTodos(
         todos.map((todo) =>
-          todo.id === id ? { ...todo, checked: !todo.checked } : todo
-        )
-      );
-
-      localStorage.setItem(
-        "todos",
-        JSON.stringify(
-          todos.map((todo) =>
-            todo.id === id ? { ...todo, checked: !todo.checked } : todo
-          )
-        )
-      );
-    },
-    [todos]
-  );
+          todo.id === id ? { ...todo, checked: !todo.checked } : todo));},[todos]);
 
   return (
     <>
-   <GlobalStyle />
+      {/* <Reset /> */}
+      <GlobalStyle />
       <TodoTemplate>
         <TodoInsert onInsert={handleInsert} />
         <TodoList
@@ -105,3 +78,4 @@ function App() {
 }
 
 export default App;
+
