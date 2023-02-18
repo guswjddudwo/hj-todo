@@ -8,7 +8,7 @@ const TodoListItemWrapper = styled.div`
   align-items: center;
 
   &:nth-child(even) {
-    background: #a4abeb;
+    background: #ffffff;
   }
   & + & {
     border-top: 1px solid #6e798b;
@@ -54,6 +54,7 @@ function TodoListItem({ todo, onRemove, onToggle }) {
   // console.log(todo)
   const { id, text, checked } = todo;
 
+
   return (
     <TodoListItemWrapper>
     <Checkbox Checkbox={checked} onClick={() => { onToggle(id);}}>
@@ -64,12 +65,7 @@ function TodoListItem({ todo, onRemove, onToggle }) {
       <MdRemoveCircleOutline />
     </Remove>
 
-    {/* <TodoListItem
-        title={'완료한 항목'}
-        todoList={todoList}
-        setTodoList={setTodoList}
-        checkedList={true} // (체크되어 있는)완료한 목록
-      />  */}
+
   </TodoListItemWrapper>
   );
 }
