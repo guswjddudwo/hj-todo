@@ -9,6 +9,7 @@ import TodoList from "./components/TodoList";
 import TodoTemplate from "./components/TodoTemplate";
 
 
+
 const GlobalStyle = createGlobalStyle`
 
   ${reset}
@@ -72,6 +73,7 @@ function App() {
           onRemove={handleRemove}
           onToggle={handleToggle}
         />
+        {/* <ToDoItem/> */}
       </TodoTemplate>
     </>
   );

@@ -42,15 +42,21 @@ const TodoTemplateWrapper = styled.div`
 
 function TodoTemplate(props) {
   const {children}=props;
-// 구조분해 할당 
-// const todos = useTodoState();
-// const undoneTasks = todos.filter(todo => !todo.done);
+
+  const today = new Date();
+
+  const dateString = today.toLocaleString('ko-KR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
+  const dayName = today.toLocaleString();
 
   return (
     <TodoTemplateWrapper>
-      <div className="app-title">TODO List</div>
-      <h1> {new Date().toLocaleDateString()}</h1>
-      {/* <div className="tasks-left">할 일 {undoneTasks.length}개 남음</div> */}
+      <div className="app-title">TODO LIST</div>
+      <h1>{dateString}</h1>
       <div className="content">{children}</div>
     </TodoTemplateWrapper>
   );

@@ -14,18 +14,18 @@ const StyledInput = styled.input`
   border: none;
   padding: 0.5rem;
   line-height: 1.5;
-  color: white;
+  color: #fff;
   flex: 1; 
 
   &::placeholder {
-    color: #fff388;
+    color: #fff;
   }
 `
 
 const StyledButton = styled.button`
   border: none;
   background: #868e96;
-  color: #fff388;
+  color: #fff;
   padding: 0 1rem;
   font-size: 1.5rem;
   display: flex;

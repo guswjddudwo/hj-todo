@@ -1,4 +1,4 @@
-import { MdCheckBox, MdCheckBoxOutlineBlank, MdRemoveCircleOutline } from "react-icons/md";
+import { MdCheckBox, MdCheckBoxOutlineBlank, MdRemoveCircleOutline  } from "react-icons/md";
 import styled, { css } from "styled-components";
 
 
@@ -46,6 +46,15 @@ const Remove = styled.div`
     color: #000000;
   }
 `;
+// const FaRegEdit = styled.div`
+//   align-items: center;
+//   font-size: 1.5rem;
+//   color: #000000;
+//   cursor: pointer;
+//   &:hover {
+//     color: #2183c4;
+//   }
+// `;
 
 
 
@@ -61,6 +70,7 @@ function TodoListItem({ todo, onRemove, onToggle }) {
       {checked ? <MdCheckBox/> : <MdCheckBoxOutlineBlank/>}
     </Checkbox>
     <Text checked={checked}>{text}</Text>
+    {/* <FaEdit onClick={() => { onRemove(id); }}></FaEdit> */}
     <Remove onClick={() => { onRemove(id); }}>
       <MdRemoveCircleOutline />
     </Remove>

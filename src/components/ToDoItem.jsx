@@ -1,7 +1,7 @@
-import React from 'react';
 import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 
-function ToDoItem ({ todoItem, todoList, setTodoList }) => {
+const ToDoItem = ({ todoItem, todoList, setTodoList }) => {
   const [edited, setEdited] = useState(false);
   const [newText, setNewTest] = useState(todoItem.text);
 
@@ -81,7 +81,7 @@ function ToDoItem ({ todoItem, todoList, setTodoList }) => {
               className="todoapp__item-edit-btn"
               onClick={onClickSubmitButton}
             >
-              👌
+              ✔
             </button>
           ) : (
             <button
@@ -103,6 +103,18 @@ function ToDoItem ({ todoItem, todoList, setTodoList }) => {
   );
 };
 
+ToDoItem.propTypes = {
+  todoItem: PropTypes.shape({
+    id: PropTypes.number,
+    text: PropTypes.string.isRequired,
+  }),
+  todoList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      text: PropTypes.string.isRequired,
+    })
+  ),
+  setTodoList: PropTypes.func.isRequired,
+};
 
-
-export default Edited;
+export default ToDoItem;
