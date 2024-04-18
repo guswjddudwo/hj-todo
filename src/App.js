@@ -8,8 +8,6 @@ import TodoInsert from "./components/TodoInsert";
 import TodoList from "./components/TodoList";
 import TodoTemplate from "./components/TodoTemplate";
 
-
-
 const GlobalStyle = createGlobalStyle`
 
   ${reset}
@@ -20,8 +18,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const [todos, setTodos] = useState([
-  ]);
+  const [todos, setTodos] = useState([]);
 
   // 로컬 스토리지에서 가져오기
   useEffect(() => {
@@ -30,13 +27,13 @@ function App() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos))
-  },[todos]);
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
- 
   const nextId = useRef(4);
 
-  const handleInsert = useCallback((text) => {
+  const handleInsert = useCallback(
+    (text) => {
       const todo = {
         id: uuidv4(),
         text,
@@ -44,23 +41,28 @@ function App() {
       };
       setTodos(todos.concat(todo));
 
-      nextId.current += 1; 
+      nextId.current += 1;
     },
     [todos]
   );
 
-
-  const handleRemove = useCallback((id) => {
-    
+  const handleRemove = useCallback(
+    (id) => {
       setTodos(todos.filter((todo) => todo.id !== id));
-    },[todos]);
-
+    },
+    [todos]
+  );
 
   const handleToggle = useCallback(
     (id) => {
       setTodos(
         todos.map((todo) =>
-          todo.id === id ? { ...todo, checked: !todo.checked } : todo));},[todos]);
+          todo.id === id ? { ...todo, checked: !todo.checked } : todo
+        )
+      );
+    },
+    [todos]
+  );
 
   return (
     <>
@@ -80,4 +82,3 @@ function App() {
 }
 
 export default App;
-
